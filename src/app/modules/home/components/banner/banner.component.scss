@@ -1,0 +1,48 @@
+@import "variables.scss";
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 345px;
+  background-color: #fff;
+
+  @media only screen and (max-width: get-breakpoint(sm)) {
+    min-height: 300px;
+  }
+  @media only screen and (max-width: get-breakpoint(xs)) {
+    min-height: 250px;
+  }
+
+  h1 {
+    z-index: 2;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 900;
+
+    @media only screen and (max-width: get-breakpoint(md)) {
+      font-size: 80px;
+    }
+
+    @media only screen and (max-width: get-breakpoint(tb)) {
+      font-size: 64px;
+    }
+
+    @media only screen and (max-width: get-breakpoint(sm)) {
+      font-size: 44px;
+    }
+
+    @media only screen and (max-width: get-breakpoint(xs)) {
+      font-size: 36px;
+    }
+  }
+
+  img {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}
