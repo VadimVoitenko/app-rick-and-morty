@@ -1,0 +1,14 @@
+$media-breakpoint: (
+  xss: 0,
+  xs: 480px,
+  sm: 768px,
+  tb: 1024px,
+  md: 1280px,
+  lg: 1440px,
+  xl: 1680px,
+  xxl: 1920px,
+);
+
+@function get-breakpoint($name) {
+  @return map-get($media-breakpoint, $name);
+}
