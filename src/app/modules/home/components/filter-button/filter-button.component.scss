@@ -1,0 +1,69 @@
+@import "variables.scss";
+
+section {
+  padding: 20px 0;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @media only screen and (max-width: get-breakpoint(xs)) {
+      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    button {
+      background: #f5f5f5;
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 0.2s ease-out;
+      height: 60px;
+      min-width: 150px;
+
+      &:hover {
+        background-color: grey;
+        transition: 0.2s ease-out;
+      }
+    }
+
+    .active-filter-btn {
+      display: inline-block;
+
+      @media only screen and (max-width: get-breakpoint(md)) {
+        margin-left: 30px;
+        gap: 14px;
+      }
+
+      @media only screen and (max-width: 1100px) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .select-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+
+      @media only screen and (max-width: 1100px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+
+    .input {
+      height: 80px;
+      width: 258px;
+      @media only screen and (max-width: get-breakpoint(md)) {
+        width: 200px;
+      }
+    }
+  }
+}

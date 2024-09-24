@@ -1,0 +1,64 @@
+<section class="filter-btn">
+  <div class="container">
+    <div class="content">
+      <button mat-raised-button (click)="onClick()">
+        {{ isActiveFilter ? "Remove Filter" : "Filter" }}
+      </button>
+
+      <ng-container *ngIf="isClick">
+        <div class="active-filter-btn">
+          <div class="select-buttons">
+            <mat-form-field appearance="fill" class="select-btn">
+              <mat-label>Select Item</mat-label>
+              <mat-select
+                id="filter-category"
+                [(ngModel)]="selectedCategory"
+                (selectionChange)="onCategoryChange()"
+              >
+                <mat-option
+                  *ngFor="let category of filterCategories"
+                  [value]="category"
+                  >{{ category }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+
+            <ng-container *ngIf="selectedCategory">
+              <mat-form-field appearance="fill" class="select-btn">
+                <mat-label>Select parameter</mat-label>
+                <mat-select id="filter-field" [(ngModel)]="selectedField">
+                  <mat-option
+                    *ngFor="let field of filterFields"
+                    [value]="field"
+                    >{{ field }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </ng-container>
+
+            <!-- <ng-container *ngIf="selectedField"> -->
+            <mat-form-field class="input">
+              <mat-label for="filter-value">Add key words to find</mat-label>
+              <input
+                matInput
+                id="filter-value"
+                [(ngModel)]="filterValue"
+                placeholder="Enter {{ selectedField }}"
+              />
+            </mat-form-field>
+            <!-- </ng-container> -->
+
+            <button
+              mat-flat-button
+              (click)="applyFilter()"
+              [disabled]="!selectedCategory || !selectedField || !filterValue"
+              class="submit-btn"
+            >
+              Find
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
